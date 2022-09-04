@@ -1,0 +1,136 @@
+.stories-container {
+  display: flex;
+  background: #fff;
+  box-shadow: 0 3px 24px -8px rgba(0, 0, 0, 0.3);
+  width: 640px;
+  margin: 0 auto;
+  padding: 20px 36px;
+  border-radius: 8px;
+  gap: 48px;
+  overflow: hidden;
+  overflow-x: scroll;
+  box-sizing: border-box;
+}
+
+.stories-container .content img {
+  height: 90px;
+  width: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  z-index: 300;
+  position: relative;
+  vertical-align: middle;
+}
+
+.stories-container .content {
+  position: relative;
+  cursor: pointer;
+}
+
+.stories-container .content::before {
+  content: "";
+  height: 98px;
+  width: 98px;
+  background: #fff;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 101;
+}
+
+.stories-container .content::after {
+  content: "";
+  height: 106px;
+  width: 106px;
+  background: linear-gradient(#dd2a7b, #f58529);
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+}
+
+.story-full {
+  background: #222;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 100ms ease;
+}
+
+.story-full.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.story-full .close-btn {
+  position: fixed;
+  right: 32px;
+  top: 32px;
+  width: 32px;
+  cursor: pointer;
+}
+
+.story-full .content .left-arrow,
+.story-full .content .right-arrow {
+  width: 60px;
+  cursor: pointer;
+}
+
+.story-full .content {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.story-full img {
+  height: 90%;
+}
+
+.story-full .content .title {
+  position: absolute;
+  bottom: 26px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff;
+  font-family: "Roboto", sans-serif;
+  line-height: 2;
+  padding: 8px 32px;
+}
+
+@media (max-width: 700px) {
+  .stories-container {
+    width: 90%;
+  }
+
+  .stories-container .content img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .stories-container .content::before {
+    height: 70px;
+    width: 70px;
+  }
+
+  .stories-container .content::after {
+    width: 80px;
+    height: 80px;
+  }
+
+  .story-full .content img {
+    height: 65%;
+  }
+}
